@@ -39,6 +39,7 @@ const SignUpForm = () => {
       );
       console.log(user);
       await createUserDocumentFromAuth(user, { displayName });
+      resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");
@@ -65,7 +66,7 @@ const SignUpForm = () => {
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
-          type="tet"
+          type="text"
           required
           onChange={handleChange}
           name="displayName"
